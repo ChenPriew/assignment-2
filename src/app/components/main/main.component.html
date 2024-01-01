@@ -53,26 +53,34 @@
       </select>
     </div>
   </div>
-
-  <div *ngFor="let lm of landmarkSer" class="mb-4">
-    <div
-      class="row shadow"
-      style="
-        background-color: rgb(255, 249, 237);
-        border-top-left-radius: 25%;
-        border-bottom-left-radius: 25%;
-      "
-    >
-      <div class="col-4" style="padding-left: unset">
-        <img src="{{ lm.url }}" width="400px" routerLink="/view/{{ lm.idx }}" />
-      </div>
-      <div class="col-8">
-        <h1>{{ lm.idx }} : {{ lm.name }}</h1>
-        <h3>{{ lm.country }}</h3>
-        <p>{{ lm.detail }}</p>
+  <div *ngIf="landmarkSer?.length; else elseBlock">
+    <div *ngFor="let lm of landmarkSer" class="mb-4">
+      <div
+        class="row shadow"
+        style="
+          background-color: rgb(255, 249, 237);
+          border-top-left-radius: 25%;
+          border-bottom-left-radius: 25%;
+        "
+      >
+        <div class="col-4" style="padding-left: unset">
+          <img
+            src="{{ lm.url }}"
+            width="400px"
+            routerLink="/view/{{ lm.idx }}"
+          />
+        </div>
+        <div class="col-8">
+          <h1>{{ lm.idx }} : {{ lm.name }}</h1>
+          <h3>{{ lm.country }}</h3>
+          <p>{{ lm.detail }}</p>
+        </div>
       </div>
     </div>
   </div>
+
+  <ng-template #elseBlock>
+    <div style="display: flex; justify-content: center;"><h2>ไม่พบข้อมูลที่ร้องขอ</h2></div>
+  </ng-template>
   <br />
 </div>
-<div></div>

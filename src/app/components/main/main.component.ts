@@ -32,10 +32,9 @@ export class MainComponent implements OnInit {
     for (let lm of this.landmarks) {
       if (lm.idx.toString() == id.value) {
         this.landmark.push(lm);
-        this.appData.setArray(this.landmark);
-        this.landmarkSer = this.appData.getArray();
-        return;
       }
+      this.appData.setArray(this.landmark);
+      this.landmarkSer = this.appData.getArray();
     }
   }
   findName(name: HTMLInputElement) {
