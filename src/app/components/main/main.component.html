@@ -1,0 +1,78 @@
+<div class="container font">
+  <div class="row text-center my-4">
+    <div class="col-4">
+      <mat-label>หมายเลขสถานที่</mat-label>
+      <input
+        type="number"
+        #id
+        style="margin-left: 10px; margin-right: 10px; width: 50px; height: 30px"
+      />
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="findOne(id)"
+        style="height: 30px"
+      >
+        ค้นหา
+      </button>
+    </div>
+    <div class="col-4">
+      <mat-label>ค้นหาจากชื่อสถานที่</mat-label>
+      <input
+        type="text"
+        #name
+        style="
+          margin-left: 10px;
+          margin-right: 10px;
+          width: 150px;
+          height: 30px;
+        "
+      />
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="findName(name)"
+        style="height: 30px"
+      >
+        ค้นหา
+      </button>
+    </div>
+    <div class="col-4">
+      <mat-label>เลือกประเทศ</mat-label>
+      <select
+        name="country"
+        style="margin-left: 10px; margin-right: 10px; height: 30px"
+        matNativeControl
+        required
+        [(ngModel)]="country"
+        (ngModelChange)="selectCountry()"
+      >
+        <option *ngFor="let country of countries" [value]="country.value">
+          {{ country.label }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div *ngFor="let lm of landmarkSer" class="mb-4">
+    <div
+      class="row shadow"
+      style="
+        background-color: rgb(255, 249, 237);
+        border-top-left-radius: 25%;
+        border-bottom-left-radius: 25%;
+      "
+    >
+      <div class="col-4" style="padding-left: unset">
+        <img src="{{ lm.url }}" width="400px" routerLink="/view/{{ lm.idx }}" />
+      </div>
+      <div class="col-8">
+        <h1>{{ lm.idx }} : {{ lm.name }}</h1>
+        <h3>{{ lm.country }}</h3>
+        <p>{{ lm.detail }}</p>
+      </div>
+    </div>
+  </div>
+  <br />
+</div>
+<div></div>

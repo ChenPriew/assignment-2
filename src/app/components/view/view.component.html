@@ -1,0 +1,37 @@
+<div style="display: flex; justify-content: center">
+  <div
+    style="
+      margin-top: 20px;
+      width: 800px;
+      display: flex;
+      position: relative;
+      justify-content: start;
+      align-items: center;
+      flex-direction: column;
+      background-color: floralwhite;
+    "
+    class="font"
+  >
+    <div>
+      <img
+        src="{{view.url}}"
+        width="800px"
+        alt=""
+      />
+    </div>
+    <div class="p-3">
+      <div>
+        <h2>{{ view.name }}</h2>
+      </div>
+      <div>
+        <p>{{ view.country }}</p>
+      </div>
+      <div>
+        <p>{{view.detail}}</p>
+      </div>
+      <div>
+        <button mat-raised-button color="primary" routerLink="/">กลับ</button>
+      </div>
+    </div>
+  </div>
+</div>
