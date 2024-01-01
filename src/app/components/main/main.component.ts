@@ -11,7 +11,7 @@ export class MainComponent implements OnInit {
   landmarks = jsonData;
   landmark: any;
   country = '';
-  landmarkSer : any;
+  landmarkSer: any;
 
   countries = [
     { value: 'ญี่ปุ่น', label: 'ญี่ปุ่น' },
@@ -24,14 +24,18 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
     this.landmarkSer = this.appData.getArray();
     console.log(this.landmarkSer);
-    
   }
 
   findOne(id: HTMLInputElement) {
     this.landmark = new Array();
-    for (let lm of this.landmarks) {
-      if (lm.idx.toString() == id.value) {
-        this.landmark.push(lm);
+    if (id.value == '' || parseInt(id.value) == 0) {
+      this.appData.setArray(this.landmarks);
+      this.landmarkSer = this.appData.getArray();
+    } else {
+      for (let lm of this.landmarks) {
+        if (lm.idx.toString() == id.value) {
+          this.landmark.push(lm);
+        }
       }
       this.appData.setArray(this.landmark);
       this.landmarkSer = this.appData.getArray();
@@ -51,7 +55,6 @@ export class MainComponent implements OnInit {
     this.appData.setArray(this.landmark);
     console.log(this.appData.landmark);
     this.landmarkSer = this.appData.getArray();
-    
   }
 
   selectCountry() {
