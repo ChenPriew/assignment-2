@@ -6,6 +6,8 @@ import jsonData from '../../assets/landmark.json';
 })
 export class AppdataService {
   public landmark: any[] = [];
+  public searchIdx: any;
+  public searchName: any;
 
   getArray(): any[] {
     return this.landmark;

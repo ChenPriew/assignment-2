@@ -12,6 +12,8 @@ export class MainComponent implements OnInit {
   landmark: any;
   country = '';
   landmarkSer: any;
+  searchIdx: any;
+  searchName: any;
 
   countries = [
     { value: 'ญี่ปุ่น', label: 'ญี่ปุ่น' },
@@ -24,6 +26,11 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
     this.landmarkSer = this.appData.getArray();
     console.log(this.landmarkSer);
+    this.searchIdx = this.appData.searchIdx;
+    console.log(this.searchIdx);
+    this.searchName = this.appData.searchName;
+    console.log(this.searchName);
+    
   }
 
   findOne(id: HTMLInputElement) {
@@ -39,6 +46,7 @@ export class MainComponent implements OnInit {
       }
       this.appData.setArray(this.landmark);
       this.landmarkSer = this.appData.getArray();
+      this.appData.searchIdx = id.value;
     }
   }
   findName(name: HTMLInputElement) {
@@ -53,8 +61,8 @@ export class MainComponent implements OnInit {
       }
     }
     this.appData.setArray(this.landmark);
-    console.log(this.appData.landmark);
     this.landmarkSer = this.appData.getArray();
+    this.appData.searchName = name.value;
   }
 
   selectCountry() {
