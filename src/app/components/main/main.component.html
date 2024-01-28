@@ -1,43 +1,52 @@
 <div class="container font">
   <div class="row text-center my-4">
     <div class="col-4">
-      <mat-label>หมายเลขสถานที่</mat-label>
-      <input
-        type="number"
-        #id
-        style="margin-left: 10px; margin-right: 10px; width: 50px; height: 30px"
-        value="{{searchIdx}}"
-      />
-      <button
-        mat-raised-button
-        color="primary"
-        (click)="findOne(id)"
-        style="height: 30px"
-      >
-        ค้นหา
-      </button>
+      <form>
+        <mat-label>หมายเลขสถานที่</mat-label>
+        <input
+          type="number"
+          #id
+          style="
+            margin-left: 10px;
+            margin-right: 10px;
+            width: 50px;
+            height: 30px;
+          "
+          value="{{ searchIdx }}"
+        />
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="findOne(id)"
+          style="height: 30px"
+        >
+          ค้นหา
+        </button>
+      </form>
     </div>
     <div class="col-4">
-      <mat-label>ค้นหาจากชื่อสถานที่</mat-label>
-      <input
-        type="text"
-        #name
-        style="
-          margin-left: 10px;
-          margin-right: 10px;
-          width: 150px;
-          height: 30px;
-        "
-        value="{{searchName}}"
-      />
-      <button
-        mat-raised-button
-        color="primary"
-        (click)="findName(name)"
-        style="height: 30px"
-      >
-        ค้นหา
-      </button>
+      <form>
+        <mat-label>ค้นหาจากชื่อสถานที่</mat-label>
+        <input
+          type="text"
+          #name
+          style="
+            margin-left: 10px;
+            margin-right: 10px;
+            width: 150px;
+            height: 30px;
+          "
+          value="{{ searchName }}"
+        />
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="findName(name)"
+          style="height: 30px"
+        >
+          ค้นหา
+        </button>
+      </form>
     </div>
     <div class="col-4">
       <mat-label>เลือกประเทศ</mat-label>
@@ -61,8 +70,6 @@
         class="row shadow"
         style="
           background-color: floralwhite;
-          border-top-left-radius: 25%;
-          border-bottom-left-radius: 25%;
         "
       >
         <div class="col-4" style="padding-left: unset">
@@ -82,7 +89,9 @@
   </div>
 
   <ng-template #elseBlock>
-    <div style="display: flex; justify-content: center;"><h2>ไม่พบข้อมูลที่ร้องขอ</h2></div>
+    <div style="display: flex; justify-content: center">
+      <h2>ไม่พบข้อมูลที่ร้องขอ</h2>
+    </div>
   </ng-template>
   <br />
 </div>
