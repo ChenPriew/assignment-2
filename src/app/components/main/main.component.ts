@@ -30,7 +30,6 @@ export class MainComponent implements OnInit {
     console.log(this.searchIdx);
     this.searchName = this.appData.searchName;
     console.log(this.searchName);
-    
   }
 
   findOne(id: HTMLInputElement) {
@@ -49,6 +48,7 @@ export class MainComponent implements OnInit {
       this.appData.searchIdx = id.value;
     }
   }
+
   findName(name: HTMLInputElement) {
     this.landmark = new Array();
 
